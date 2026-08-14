@@ -18,8 +18,9 @@ class CursedCard extends HTMLElement {
         <div class="num">01</div>
         <div>
           <h2>Install megaTinyCore</h2>
-          <p>Scan the QR for the Boards Manager URL. Install <b>megaTinyCore</b> by Spence Konde.</p>
-          <span class="included">LED library included</span>
+          <p>Arduino IDE → Preferences → <b>Additional Boards Manager URLs:</b></p>
+          <div class="package-url">http://drazzy.com/<br>package_drazzy.com_index.json</div>
+          <p>Boards Manager: install <b>megaTinyCore</b> by Spence Konde.<br><b class="library-inline">LED library included.</b></p>
         </div>
       </section>
 
@@ -44,14 +45,17 @@ class CursedCard extends HTMLElement {
         </div>
       </section>
 
-      <div class="power"><b>POWER:</b> use side <b>VCC + GND</b>—never the 5V pin. Recommended maximum: <b>20 V</b>.</div>
+      <div class="power">Power the board using the side <b>VCC</b> pin with up to <b>20V</b>. Supplying raw voltage to the <b>5V</b> pin may cause damage.</div>
 
       <section class="qr-band">
         <img src="images/cursed-pcb-github-qr.png" alt="QR code for the Cursed PCB guide and code">
         <div>
           <div class="qr-label">Full guide + example code</div>
           <strong>github.com/user-will/<br>cursedPCB</strong>
-          <small>Arduino IDE: arduino.cc</small>
+          <svg class="brand-logo" viewBox="243 276 1615 468" role="img" aria-label="Reil Industrial">
+            <title>Reil Industrial</title>
+            <image href="images/reil_industrial_logo.png" width="2137" height="1100"></image>
+          </svg>
         </div>
       </section>`;
   }

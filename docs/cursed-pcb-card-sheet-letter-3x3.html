@@ -24,8 +24,23 @@
     }
 
     .sheet cursed-card {
-      outline: .18mm dashed #8b8d8a;
-      outline-offset: -.18mm;
+      position: relative;
+    }
+
+    .sheet cursed-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(#8b8d8a, #8b8d8a) left top / 3mm .18mm no-repeat,
+        linear-gradient(#8b8d8a, #8b8d8a) left top / .18mm 3mm no-repeat,
+        linear-gradient(#8b8d8a, #8b8d8a) right top / 3mm .18mm no-repeat,
+        linear-gradient(#8b8d8a, #8b8d8a) right top / .18mm 3mm no-repeat,
+        linear-gradient(#8b8d8a, #8b8d8a) left bottom / 3mm .18mm no-repeat,
+        linear-gradient(#8b8d8a, #8b8d8a) left bottom / .18mm 3mm no-repeat,
+        linear-gradient(#8b8d8a, #8b8d8a) right bottom / 3mm .18mm no-repeat,
+        linear-gradient(#8b8d8a, #8b8d8a) right bottom / .18mm 3mm no-repeat;
     }
   </style>
 </head>

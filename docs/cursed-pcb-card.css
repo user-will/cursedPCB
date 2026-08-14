@@ -50,7 +50,7 @@ cursed-card {
   grid-template-columns: 10mm 1fr;
   gap: 2.3mm;
   align-items: center;
-  padding: 2.1mm 0 1.8mm;
+  padding: 1.6mm 0 1.4mm;
   border-bottom: .18mm solid var(--line);
 }
 
@@ -82,7 +82,7 @@ cursed-card {
   display: grid;
   grid-template-columns: 4.5mm 1fr;
   gap: 1.4mm;
-  padding: 1.5mm 0;
+  padding: 1.15mm 0;
   border-bottom: .18mm solid var(--line);
 }
 
@@ -98,17 +98,18 @@ h2 { margin: 0; font-size: 6.5pt; line-height: 1.05; }
 p { margin: .55mm 0 0; color: var(--muted); font-size: 4.45pt; line-height: 1.18; }
 strong, b { color: var(--ink); }
 
-.included {
-  display: inline-block;
-  margin-top: .8mm;
-  padding: .45mm .9mm;
-  border: .18mm solid var(--green);
+.library-inline {
   color: var(--green);
-  font-size: 4.25pt;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: .03em;
-  text-transform: uppercase;
+}
+
+.package-url {
+  margin-top: .65mm;
+  padding: .55mm .8mm;
+  border-left: .6mm solid var(--green);
+  background: var(--soft);
+  color: var(--ink);
+  font-size: 4pt;
+  line-height: 1.08;
 }
 
 .settings {
@@ -133,8 +134,8 @@ strong, b { color: var(--ink); }
 }
 
 .power {
-  margin: 1.15mm 0 0;
-  padding: 1mm 1.2mm;
+  margin: .75mm 0 0;
+  padding: .75mm 1.2mm;
   border-left: .7mm solid var(--green);
   background: var(--soft);
   color: var(--ink);
@@ -148,7 +149,7 @@ strong, b { color: var(--ink); }
   gap: 2.2mm;
   align-items: center;
   margin-top: auto;
-  padding-top: 1.5mm;
+  padding-top: 1mm;
   border-top: .22mm solid var(--ink);
 }
 
@@ -175,11 +176,9 @@ strong, b { color: var(--ink); }
   overflow-wrap: anywhere;
 }
 
-.qr-band small {
+.brand-logo {
   display: block;
-  margin-top: 1.2mm;
-  color: var(--muted);
-  font-size: 3.8pt;
-  line-height: 1.1;
-  text-transform: uppercase;
+  width: 20mm;
+  height: 5.8mm;
+  margin-top: 1mm;
 }

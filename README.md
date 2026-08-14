@@ -20,7 +20,7 @@ Cursed PCB is a programmable light board with an ATtiny412 microcontroller, four
 
 Use the [nine-card Letter sheet](docs/cursed-pcb-card-sheet-letter-3x3.pdf) to print nine cards on one single-sided sheet of US Letter paper or cardstock. Each finished card is 70 × 90 mm.
 
-In the print dialog, select **Letter**, **Portrait**, **Actual size** or **100% scale**, and one-sided printing. Do not select “Fit to page.” Cut along the dashed lines.
+In the print dialog, select **Letter**, **Portrait**, **Actual size** or **100% scale**, and one-sided printing. Do not select “Fit to page.” Use the small corner marks to align your cuts.
 
 ## What you need
 
