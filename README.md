@@ -4,16 +4,23 @@ Cursed PCB is a programmable light board with an ATtiny412 microcontroller, four
 
 ![Top view of the Cursed PCB](docs/images/board-top.png)
 
-> **Quick links:** [LED example](examples/LED_example/LED_example.ino) · [printable quick-start guide](docs/cursed-pcb-quick-start.pdf) · [3 × 5 setup card](docs/cursed-pcb-setup-card-3x5.pdf) · [megaTinyCore documentation](https://github.com/SpenceKonde/megaTinyCore)
+> **Quick links:** [LED example](examples/LED_example/LED_example.ino) · [printable quick-start guide](docs/cursed-pcb-quick-start.pdf) · [nine-card Letter sheet](docs/cursed-pcb-card-sheet-letter-3x3.pdf) · [single 70 × 90 mm card](docs/cursed-pcb-setup-card-70x90mm.pdf) · [megaTinyCore documentation](https://github.com/SpenceKonde/megaTinyCore)
 
 ## Repository contents
 
 - [`examples/LED_example/LED_example.ino`](examples/LED_example/LED_example.ino) — ready-to-upload LED animations and optional button support
 - [`docs/cursed-pcb-quick-start.pdf`](docs/cursed-pcb-quick-start.pdf) — printable two-page quick-start guide
-- [`docs/cursed-pcb-setup-card-3x5.pdf`](docs/cursed-pcb-setup-card-3x5.pdf) — single-sided, low-ink 3 × 5 inch setup card
+- [`docs/cursed-pcb-card-sheet-letter-3x3.pdf`](docs/cursed-pcb-card-sheet-letter-3x3.pdf) — nine 70 × 90 mm cards arranged 3 × 3 on US Letter paper
+- [`docs/cursed-pcb-setup-card-70x90mm.pdf`](docs/cursed-pcb-setup-card-70x90mm.pdf) — one 70 × 90 mm setup card
 - [`attiny412_addressable.kicad_sch`](attiny412_addressable.kicad_sch) — KiCad schematic
 - [`attiny412_addressable.kicad_pcb`](attiny412_addressable.kicad_pcb) — KiCad PCB layout
 - [`attiny412_addressable.kicad_pro`](attiny412_addressable.kicad_pro) — KiCad project settings
+
+## Printing the setup cards
+
+Use the [nine-card Letter sheet](docs/cursed-pcb-card-sheet-letter-3x3.pdf) to print nine cards on one single-sided sheet of US Letter paper or cardstock. Each finished card is 70 × 90 mm.
+
+In the print dialog, select **Letter**, **Portrait**, **Actual size** or **100% scale**, and one-sided printing. Do not select “Fit to page.” Cut along the dashed lines.
 
 ## What you need
 
