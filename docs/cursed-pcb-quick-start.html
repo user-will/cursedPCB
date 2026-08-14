@@ -61,7 +61,7 @@
       <li>Use a USB-C <strong>data</strong> cable, not a charging-only cable.</li>
       <li>Install Arduino IDE from <strong>arduino.cc/en/software</strong>.</li>
       <li>No separate LED library is needed; megaTinyCore includes it.</li>
-      <li>For external power, use side-header <strong>VCC + GND</strong>—never feed the 5V pin.</li>
+      <li>For external power, use side-header <strong>VCC + GND</strong>—never the 5V pin. Recommended maximum: <strong>20 V</strong>.</li>
     </ul>
 
     <h2>Install the ATtiny board package</h2>
@@ -126,7 +126,7 @@
       <div>
         <h2>Power safely</h2>
         <div class="box warning small">
-          Use USB-C normally. For standalone external power, connect positive to side-header <strong>VCC</strong> and negative to <strong>GND</strong>. Never power through the 5V pin or connect USB-C and VCC together. VCC feeds an L78L05: fixed 5 V, 100 mA total maximum, about 7 V minimum input for regulation, and 30 V absolute maximum. Higher input voltage creates more heat. High/full-white LED brightness can exceed 100 mA.
+          For external power, connect positive to side-header <strong>VCC</strong> and negative to <strong>GND</strong>. Never power through the 5V pin. Recommended maximum: <strong>20 V</strong>.
         </div>
       </div>
     </div>

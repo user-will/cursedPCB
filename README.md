@@ -126,7 +126,7 @@ The separate three-pin header is labeled **UPDI, GND, VCC** from top to bottom w
 - For normal use, power and program the board through USB-C.
 - For standalone external power, connect the supply to **VCC** and **GND** on the side three-pin header. **Do not power the board through the 5V pin.**
 - VCC passes through an onboard **L78L05 linear regulator**. It produces a fixed 5 V rail and is rated for a maximum of **100 mA total output current**. The board itself and all four LEDs share that limit.
-- The regulator needs approximately **7 V or more at VCC** to maintain a regulated 5 V output. Its **30 V input rating is an absolute maximum, not a recommended operating voltage**. Higher input voltage creates more heat and reduces the practical current available.
+- The regulator needs approximately **7 V or more at VCC** to maintain a regulated 5 V output. Keep VCC at or below the **recommended 20 V maximum**. The regulator IC's 30 V rating is an absolute maximum, not a recommended operating voltage. Higher input voltage creates more heat and reduces the practical current available.
 - Regulator heat is approximately `(VCC input − 5 V) × current`. Keep external supply voltage and LED brightness as low as practical. Four LEDs at high or full-white brightness can exceed the regulator's 100 mA rating.
 - Never connect an external supply to VCC while USB-C is connected. The two power sources are not isolated.
 - The exposed **5V** header pin is the regulator's output/board rail. It may be used only as a limited 5 V output when the board is properly powered; never feed an external supply into it.
@@ -165,7 +165,7 @@ The ATtiny412 has 4 KB of program flash and 256 bytes of SRAM. Prefer `tinyNeoPi
 - ATtiny412, 4 KB flash / 256 bytes SRAM
 - Four SK6812MINI-E addressable RGB LEDs
 - USB-C connector with onboard CH340 SerialUPDI programming
-- Side VCC external-power input through an L78L05 regulator: fixed 5 V output, 100 mA maximum total output, approximately 7 V minimum input for regulation, 30 V absolute-maximum regulator input
+- Side VCC external-power input through an L78L05 regulator: recommended 20 V maximum input, fixed 5 V output, 100 mA maximum total output
 - Four exposed GPIO pins, including I²C SDA/SCL
 - Approximately 58 mm × 29.5 mm
 - Four 2.2 mm mounting holes
