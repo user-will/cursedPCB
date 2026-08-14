@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cursed PCB — Quick Start</title>
+  <style>
+    @page { size: 5.5in 8.5in; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; color: #251c18; font-family: Arial, Helvetica, sans-serif; }
+    body { background: #ddd7d1; }
+    .page {
+      width: 5.5in;
+      height: 8.5in;
+      padding: 0.34in 0.38in 0.3in;
+      background: #fffdf9;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+    .eyebrow { color: #b04b28; font-size: 8pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+    h1 { margin: 0.04in 0 0.02in; font-size: 25pt; line-height: 0.98; letter-spacing: -0.035em; }
+    h2 { margin: 0.13in 0 0.055in; color: #82391f; font-size: 12.5pt; line-height: 1.05; }
+    h3 { margin: 0.08in 0 0.025in; font-size: 9.5pt; }
+    p, li, td, th { font-size: 8.25pt; line-height: 1.26; }
+    p { margin: 0.035in 0; }
+    ol, ul { margin: 0.035in 0 0.055in 0.19in; padding: 0; }
+    li { margin: 0 0 0.025in; }
+    code { font-family: "DejaVu Sans Mono", monospace; font-size: 7.4pt; }
+    .hero { width: 100%; height: 2.02in; object-fit: cover; object-position: center; margin: 0.08in 0 0.06in; border-radius: 0.12in; background: #d9d7e8; }
+    .intro { font-size: 9pt; line-height: 1.28; }
+    .box { margin: 0.07in 0; padding: 0.075in 0.09in; border-radius: 0.07in; background: #f2e8dc; border-left: 0.045in solid #c65b34; }
+    .box p:first-child, .box h3:first-child { margin-top: 0; }
+    .box p:last-child { margin-bottom: 0; }
+    .url { word-break: break-all; font-size: 7.1pt; }
+    .settings, .pins { width: 100%; border-collapse: collapse; margin-top: 0.04in; }
+    .settings th, .settings td, .pins th, .pins td { padding: 0.035in 0.045in; border-bottom: 0.006in solid #d9cfc5; text-align: left; vertical-align: top; }
+    .settings th, .pins th { background: #3c2c25; color: #fff; font-size: 7.6pt; }
+    .settings td:first-child { width: 31%; font-weight: 700; }
+    .pins td:nth-child(1) { width: 17%; font-weight: 700; }
+    .pins td:nth-child(2) { width: 18%; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.13in; }
+    .step { display: grid; grid-template-columns: 0.24in 1fr; gap: 0.04in; margin-bottom: 0.055in; }
+    .num { width: 0.21in; height: 0.21in; border-radius: 50%; background: #c65b34; color: white; font-size: 8pt; font-weight: 800; display: grid; place-items: center; }
+    .step p { margin: 0; }
+    .warning { background: #fff1c9; border-left-color: #e3a51a; }
+    .footer { position: absolute; bottom: 0.2in; left: 0.38in; right: 0.38in; display: flex; justify-content: space-between; color: #75665d; font-size: 6.7pt; }
+    .small { font-size: 7.25pt; }
+  </style>
+</head>
+<body>
+  <section class="page">
+    <div class="eyebrow">Programmable ATtiny412 light board</div>
+    <h1>Cursed PCB</h1>
+    <p class="intro">Four addressable RGB LEDs, onboard USB-C power, and built-in SerialUPDI programming. This card gets the example running; the full guide and code live on GitHub.</p>
+    <img class="hero" src="images/board-top.png" alt="Top view of the Cursed PCB">
+
+    <h2>Before you start</h2>
+    <ul>
+      <li>Use a USB-C <strong>data</strong> cable, not a charging-only cable.</li>
+      <li>Install Arduino IDE from <strong>arduino.cc/en/software</strong>.</li>
+      <li>No separate LED library is needed; megaTinyCore includes it.</li>
+    </ul>
+
+    <h2>Install the ATtiny board package</h2>
+    <div class="step"><div class="num">1</div><p>In Arduino IDE, open <strong>File → Preferences</strong> (Arduino IDE → Settings on macOS).</p></div>
+    <div class="step"><div class="num">2</div><p>Add this to <strong>Additional Boards Manager URLs</strong>:</p></div>
+    <div class="box"><code class="url">http://drazzy.com/package_drazzy.com_index.json</code></div>
+    <div class="step"><div class="num">3</div><p>Open <strong>Tools → Board → Boards Manager</strong>, search for <strong>megaTinyCore</strong>, and install the newest version by Spence Konde.</p></div>
+
+    <h2>Connect and choose these settings</h2>
+    <p>Plug the board into the computer. The power LED should turn on and a new serial port should appear.</p>
+    <table class="settings">
+      <tr><th>Tools menu</th><th>Choose</th></tr>
+      <tr><td>Board</td><td>ATtiny412/402/212/202 <strong>(without Optiboot)</strong></td></tr>
+      <tr><td>Clock</td><td>20 MHz internal</td></tr>
+      <tr><td>BOD Voltage Level</td><td>4.2V (20 MHz or less)</td></tr>
+      <tr><td>Programmer</td><td>SerialUPDI - 230400 baud</td></tr>
+    </table>
+
+    <div class="footer"><span>Cursed PCB · Quick Start</span><span>1 / 2</span></div>
+  </section>
+
+  <section class="page">
+    <div class="eyebrow">Upload · Pins · Troubleshooting</div>
+    <h1 style="font-size: 21pt;">Make some light</h1>
+
+    <h2>Get and upload the example</h2>
+    <div class="box">
+      <strong>Code and full instructions</strong><br>
+      <code class="url">github.com/user-will/cursedPCB</code>
+    </div>
+    <div class="step"><div class="num">1</div><p>Download the repository and open <code>examples/LED_example/LED_example.ino</code>.</p></div>
+    <div class="step"><div class="num">2</div><p>Choose <strong>Sketch → Verify/Compile</strong>.</p></div>
+    <div class="step"><div class="num">3</div><p>Choose <strong>Sketch → Upload Using Programmer</strong>. Do not use the regular Upload command.</p></div>
+    <p>The LEDs show red, green, blue, white, a rainbow sweep, and a moving white chase.</p>
+
+    <h2>Optional mode button</h2>
+    <p>Connect a normally-open pushbutton between header pins <strong>0 (PA6)</strong> and <strong>2 (PA1)</strong>. No external resistor is needed with the example sketch. Each press advances the animation. The LEDs still work without the button.</p>
+
+    <h2>Six-pin header</h2>
+    <p class="small">Component side up, USB-C at the bottom; read left to right:</p>
+    <table class="pins">
+      <tr><th>Label</th><th>ATtiny</th><th>Use</th></tr>
+      <tr><td>5V</td><td>VDD</td><td>Regulated 5 V rail</td></tr>
+      <tr><td>GND</td><td>GND</td><td>Ground</td></tr>
+      <tr><td>0</td><td>PA6</td><td>Digital, DAC, TX</td></tr>
+      <tr><td>1</td><td>PA7</td><td>Digital, RX</td></tr>
+      <tr><td>2</td><td>PA1</td><td>Digital, I²C SDA</td></tr>
+      <tr><td>3</td><td>PA2</td><td>Digital, I²C SCL</td></tr>
+    </table>
+    <p class="small">The LEDs use <strong>PA3 / Arduino pin 4</strong>. PA0 is reserved for UPDI programming. The onboard USB connection programs UPDI; it is not a Serial Monitor connection.</p>
+
+    <div class="two-col">
+      <div>
+        <h2>Troubleshooting</h2>
+        <ul class="small">
+          <li><strong>No port:</strong> try a known data cable or install a CH340 driver.</li>
+          <li><strong>Upload error:</strong> recheck board, BOD voltage, and programmer; close Serial Monitor.</li>
+          <li><strong>Still failing:</strong> select <em>SerialUPDI - SLOW: 57600 baud</em>.</li>
+          <li><strong>Dark LEDs:</strong> use <code>PIN_PA3</code>, four pixels, and <code>NEO_GRB</code>.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Power safely</h2>
+        <div class="box warning small">
+          Use USB-C for normal power. Never apply more than regulated 5 V to the exposed 5V pin. Do not connect external power while USB-C is connected. Disconnect power before changing wiring. Avoid shorts and staring into LEDs at high brightness.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer"><span>Board size: about 58 × 29.5 mm</span><span>2 / 2</span></div>
+  </section>
+</body>
+</html>

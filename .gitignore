@@ -1,0 +1,28 @@
+# KiCad editor state, lock files, and automatic backups
+*.kicad_prl
+*.lck
+~*.lck
+*-backups/
+*_backup*.kicad_*
+*.round-tracks-config
+
+# Local revision history and agent metadata
+.history/
+.agents/
+.codex/
+
+# Manufacturing exports and local artwork sources
+order_*/
+*.gbr
+*.gbrjob
+*.drl
+*.zip
+*.xcf
+attiny412_addressable-*.svg
+attiny412_handdrawn_*.png
+attiny412_handdrawn_*.svg
+attiny412silkscreen_v2.png
+
+# OS-generated files
+.DS_Store
+Thumbs.db

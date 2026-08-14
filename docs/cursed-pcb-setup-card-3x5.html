@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cursed PCB — 3 × 5 Setup Card</title>
+  <style>
+    @page { size: 3in 5in; margin: 0; }
+
+    :root {
+      --ink: #181816;
+      --muted: #5f615e;
+      --line: #c9ccc8;
+      --soft: #f2f4f1;
+      --green: #087d35;
+      --red: #d93428;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: white; }
+    body {
+      color: var(--ink);
+      font-family: "Ioskeley Mono", "DejaVu Sans Mono", monospace;
+      -webkit-font-smoothing: antialiased;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .card {
+      width: 3in;
+      height: 5in;
+      padding: .18in .18in .16in;
+      position: relative;
+      overflow: hidden;
+      background: white;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: .065in;
+      border-bottom: 1px solid var(--ink);
+      color: var(--muted);
+      font-size: 5.1pt;
+      line-height: 1;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .alert {
+      display: grid;
+      grid-template-columns: .58in 1fr;
+      gap: .12in;
+      align-items: center;
+      padding: .12in 0 .10in;
+      border-bottom: 1px solid var(--line);
+    }
+    .stop-sign {
+      width: .56in;
+      height: .56in;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--red);
+      clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%);
+      font-size: 10pt;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -.06em;
+    }
+    .alert h1 {
+      margin: 0;
+      font-size: 13.2pt;
+      line-height: .98;
+      letter-spacing: -.05em;
+      font-weight: 700;
+    }
+    .alert h1 em { color: var(--green); font-style: normal; }
+    .alert p {
+      margin: .035in 0 0;
+      color: var(--muted);
+      font-size: 5.6pt;
+      line-height: 1.22;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: .20in 1fr;
+      gap: .075in;
+      padding: .075in 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .num {
+      padding-top: .012in;
+      color: var(--green);
+      font-size: 6.2pt;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    h2 { margin: 0; font-size: 7.8pt; line-height: 1.1; }
+    p { margin: .025in 0 0; color: var(--muted); font-size: 5.55pt; line-height: 1.25; }
+    strong, b { color: var(--ink); }
+    code { color: var(--ink); font: inherit; font-size: 5.05pt; }
+
+    .url {
+      margin-top: .04in;
+      padding: .045in .055in;
+      background: var(--soft);
+      border-left: .025in solid var(--green);
+      font-size: 5.05pt;
+      line-height: 1.22;
+    }
+
+    .library-note {
+      margin-top: .045in;
+      padding: .05in .06in;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 5.25pt;
+      line-height: 1.18;
+      font-weight: 700;
+    }
+
+    .settings {
+      display: grid;
+      grid-template-columns: .66in 1fr;
+      margin-top: .04in;
+      border-top: 1px solid var(--line);
+    }
+    .settings div {
+      padding: .025in 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 5.15pt;
+      line-height: 1.12;
+    }
+    .settings div:nth-child(odd) {
+      color: var(--muted);
+      font-size: 4.85pt;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+    }
+
+    .final {
+      position: absolute;
+      left: .18in;
+      right: .18in;
+      bottom: .31in;
+      padding: .055in .065in;
+      border: 1px dashed var(--muted);
+    }
+    .final-label {
+      color: var(--green);
+      font-size: 4.9pt;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .final strong { display: block; margin-top: .018in; font-size: 5.8pt; line-height: 1.1; }
+
+    .footer {
+      position: absolute;
+      left: .18in;
+      right: .18in;
+      bottom: .12in;
+      display: flex;
+      justify-content: space-between;
+      padding-top: .055in;
+      border-top: 1px solid var(--ink);
+      color: var(--muted);
+      font-size: 4.7pt;
+      line-height: 1;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="topline">
+      <span>Cursed PCB</span>
+      <span>ATtiny412 / setup</span>
+    </div>
+
+    <section class="alert">
+      <div class="stop-sign" aria-label="Stop">STOP</div>
+      <div>
+        <h1>Set up Arduino<br><em>before uploading.</em></h1>
+        <p>This is not a standard Arduino board. Use a USB-C <b>data</b> cable.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="num">01</div>
+      <div>
+        <h2>Install megaTinyCore</h2>
+        <p>Arduino IDE → Preferences → Additional Boards Manager URLs:</p>
+        <div class="url"><code>http://drazzy.com/<br>package_drazzy.com_index.json</code></div>
+        <p>Then open Boards Manager, search <b>megaTinyCore</b>, and install the newest version by Spence Konde.</p>
+        <div class="library-note">LED LIBRARY INCLUDED — no separate download needed.</div>
+        <p>megaTinyCore automatically installs the required <b>tinyNeoPixel_Static</b> library.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="num">02</div>
+      <div>
+        <h2>Connect + choose settings</h2>
+        <div class="settings">
+          <div>Board</div><div>ATtiny412/402/212/202<br><b>without Optiboot</b></div>
+          <div>Clock</div><div>20 MHz internal</div>
+          <div>BOD voltage</div><div><b>4.2V (20 MHz or less)</b></div>
+          <div>Programmer</div><div>SerialUPDI – 230400 baud</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="num">03</div>
+      <div>
+        <h2>Upload the example</h2>
+        <p>Open <b>LED_example.ino</b>. Choose <b>Sketch → Upload Using Programmer</b>—not the regular Upload command.</p>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="final-label">Full guide + example code</div>
+      <strong>github.com/user-will/cursedPCB →</strong>
+    </section>
+
+    <footer class="footer">
+      <span>Arduino IDE: arduino.cc/en/software</span>
+      <span>Print 100%</span>
+    </footer>
+  </main>
+</body>
+</html>
