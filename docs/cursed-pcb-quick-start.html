@@ -61,6 +61,7 @@
       <li>Use a USB-C <strong>data</strong> cable, not a charging-only cable.</li>
       <li>Install Arduino IDE from <strong>arduino.cc/en/software</strong>.</li>
       <li>No separate LED library is needed; megaTinyCore includes it.</li>
+      <li>For external power, use side-header <strong>VCC + GND</strong>—never feed the 5V pin.</li>
     </ul>
 
     <h2>Install the ATtiny board package</h2>
@@ -103,14 +104,14 @@
     <p class="small">Component side up, USB-C at the bottom; read left to right:</p>
     <table class="pins">
       <tr><th>Label</th><th>ATtiny</th><th>Use</th></tr>
-      <tr><td>5V</td><td>VDD</td><td>Regulated 5 V rail</td></tr>
+      <tr><td>5V</td><td>VDD</td><td>Regulated 5 V output; not a power input</td></tr>
       <tr><td>GND</td><td>GND</td><td>Ground</td></tr>
       <tr><td>0</td><td>PA6</td><td>Digital, DAC, TX</td></tr>
       <tr><td>1</td><td>PA7</td><td>Digital, RX</td></tr>
       <tr><td>2</td><td>PA1</td><td>Digital, I²C SDA</td></tr>
       <tr><td>3</td><td>PA2</td><td>Digital, I²C SCL</td></tr>
     </table>
-    <p class="small">The LEDs use <strong>PA3 / Arduino pin 4</strong>. PA0 is reserved for UPDI programming. The onboard USB connection programs UPDI; it is not a Serial Monitor connection.</p>
+    <p class="small">The LEDs use <strong>PA3 / Arduino pin 4</strong>. PA0 is reserved for UPDI programming. The side three-pin header is <strong>UPDI, GND, VCC</strong> from top to bottom; VCC is the external-power input. The onboard USB connection programs UPDI; it is not a Serial Monitor connection.</p>
 
     <div class="two-col">
       <div>
@@ -125,7 +126,7 @@
       <div>
         <h2>Power safely</h2>
         <div class="box warning small">
-          Use USB-C for normal power. Never apply more than regulated 5 V to the exposed 5V pin. Do not connect external power while USB-C is connected. Disconnect power before changing wiring. Avoid shorts and staring into LEDs at high brightness.
+          Use USB-C normally. For standalone external power, connect positive to side-header <strong>VCC</strong> and negative to <strong>GND</strong>. Never power through the 5V pin or connect USB-C and VCC together. VCC feeds an L78L05: fixed 5 V, 100 mA total maximum, about 7 V minimum input for regulation, and 30 V absolute maximum. Higher input voltage creates more heat. High/full-white LED brightness can exceed 100 mA.
         </div>
       </div>
     </div>

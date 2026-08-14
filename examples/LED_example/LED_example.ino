@@ -1,5 +1,9 @@
 #include <tinyNeoPixel_Static.h>
 
+// POWER: Use USB-C, or connect an external supply to VCC and GND on the
+// side three-pin header. Do not use the 5V header pin as a power input.
+// VCC feeds the onboard 5V regulator, which is limited to 100 mA total.
+
 // The four onboard SK6812 LEDs form one chain on PA3 (Arduino pin 4).
 constexpr uint8_t LED_PIN = PIN_PA3;
 constexpr uint8_t NUM_LEDS = 4;

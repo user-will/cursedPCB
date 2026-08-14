@@ -196,8 +196,7 @@
         <p>Arduino IDE → Preferences → Additional Boards Manager URLs:</p>
         <div class="url"><code>http://drazzy.com/<br>package_drazzy.com_index.json</code></div>
         <p>Then open Boards Manager, search <b>megaTinyCore</b>, and install the newest version by Spence Konde.</p>
-        <div class="library-note">LED LIBRARY INCLUDED — no separate download needed.</div>
-        <p>megaTinyCore automatically installs the required <b>tinyNeoPixel_Static</b> library.</p>
+        <div class="library-note">LED LIBRARY INCLUDED — <b>tinyNeoPixel_Static</b>; no separate download.</div>
       </div>
     </section>
 
@@ -219,6 +218,7 @@
       <div>
         <h2>Upload the example</h2>
         <p>Open <b>LED_example.ino</b>. Choose <b>Sketch → Upload Using Programmer</b>—not the regular Upload command.</p>
+        <p><b>External power:</b> side <b>VCC + GND</b> only. Never feed the 5V pin or connect VCC power with USB-C. Regulator: 5 V / 100 mA total; ≥7 V input; 30 V absolute max. Higher VCC makes more heat; full-bright LEDs can exceed 100 mA.</p>
       </div>
     </section>
 
